@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+# Clean the repo before committing.
+make clean

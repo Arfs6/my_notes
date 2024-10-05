@@ -12,8 +12,10 @@ all: $(TEX_FILES:.tex=.html)
 	@echo Compiling $<
 	cd $(shell dirname $<) &&\
 	make4ht -x -u $(shell basename $<) "html,frame,next,mathjax"
+	if [ "$(shell basename $< )" = "index.tex" ]; then
+	./scripts/add_listing.py $<
 
-.PHONY:
+.PHONY: clean
 clean:
 	@echo "Removing auxilary files: ..."
 	@$(foreach file, $(AUX_FILES), rm -f $(file);)

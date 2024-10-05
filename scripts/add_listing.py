@@ -15,7 +15,7 @@ class MyHTMLParser(HTMLParser):
     the position of </body>
     """
 
-    def handle_startag(self, tag, attr):
+    def handle_starttag(self, tag, attr):
         """Looks for the title tag."""
         if tag.lower() == "title":
             self._title = True
@@ -24,6 +24,7 @@ class MyHTMLParser(HTMLParser):
         """Saves the title text"""
         if hasattr(self, "_title"):
             self.title = data
+            del self._title
 
     def handle_endtag(self, tag):
         """Saves the position of </body>"""
@@ -37,7 +38,7 @@ def getFilesAndDirs(path: str):
     files = []
     dirs = []
     for i in ls:
-        if not os.path.isdir(i) and i.endswith(".html"):
+        if not os.path.isdir(i) and i.endswith(".html") and i.lower() != "index.html":
             files.append(i)
         elif os.path.exists(os.path.join(path, i, "index.html")):
             dirs.append(i)
@@ -75,8 +76,8 @@ def createMarkup(files: List[Tuple], dirs: List[Tuple]) -> str:
     else:
         markup.append("<ol>")
         try:
-            for dir in dirs:
-                markup.append(f'<li><a href="{dir[1]}">{dir[0]}</a></li>')
+            for i in dirs:
+                markup.append(f'<li><a href="{i[1]}">{i[0]}</a></li>')
         except Exception as mess:
             print("Exception while trying to list directories: ", mess)
         finally:
@@ -87,17 +88,17 @@ def createMarkup(files: List[Tuple], dirs: List[Tuple]) -> str:
 
 def run(path: str):
     """"""
-    basename = os.path.dirname(path)
-    _files, _dirs = getFilesAndDirs(basename)
+    dirName = os.path.dirname(path)
+    _files, _dirs = getFilesAndDirs(dirName)
     files: List[Tuple] = []
     dirs: List[Tuple] = []
     for file in _files:
-        filePath = os.path.join(basename, file)
-        files.append((getTitle(filePath), filePath))
+        filePath = os.path.join(dirName, file)
+        files.append((getTitle(filePath), f"./{file}"))
 
-    for dir in _dirs:
-        dirPath = os.path.join(basename, dir)
-        dirs.append((getTitle(os.path.join(dirPath, "index.html")), dirPath))
+    for i in _dirs:
+        dirPath = os.path.join(dirName, i, "index.html")
+        dirs.append((getTitle(dirPath), f"./{i}/index.html"))
 
     markup = createMarkup(files, dirs)
     with open(path, "r") as fileObj:
@@ -118,6 +119,8 @@ if __name__ == "__main__":
         print("You must pass path to a index.tex or  index.html file.")
         exit(1)
     path = sys.argv[1]
+    if path[:2] != "./":
+        path = "./" + path
     if not os.path.exists(path) or os.path.isdir(path):
         print("invalid file.")
         exit(1)

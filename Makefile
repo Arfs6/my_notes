@@ -14,7 +14,7 @@ all: $(TEX_FILES:.tex=.html)
 %.html: %.tex
 	@echo Compiling $<
 	cd $(dir $<) &&\
-	make4ht -x -u $(notdir $<) "html,frame,next,mathjax"
+	make4ht -x -u -s $(notdir $<) "html,frame,next,mathjax"
 
 .PHONY: clean
 clean:

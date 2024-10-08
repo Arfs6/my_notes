@@ -1,0 +1,180 @@
+\documentclass{book}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage{minted}
+\title{CSC 201 {-} Computer Programming I}
+\author{Abdulqadir Ahmad}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+This course seems to focus a lot on C++.
+
+I use g++ on WSL ubuntu 22.04 for compilation and running. All these tools are command line based; if you're the GUI type, you could try visual studio (the IDE not the text editor).
+
+\chapter{Basic Concepts in Programming}
+
+\section{Computer Program and Programming Language}
+A computer program is a sequence of instructions written to perform a specified task. The instruction is written in a language that a computer can understand; I.E. a programming language. Thus a programming language is the language in which computer programs are written. The instructions are like commands that tell the computer what to do.
+
+Unlike human language, most programming languages are specific and detailed in nature. For example, if you ask 10 people to give another person a specific command in English, you'll get different variations of the command. On the other hand, a computer has a set of commands it knows (E.G. add not sum) and if you give it a command it doesn't know, you'll have to deal with it 😊. If you're lucky, you'll get an error. If you're unlucky, the computer will crash.
+
+\section{Generations of Programming Languages}
+There are currently 5 generations of programming languages. Unlike generations of computers, most generations of programming languages are still in use and some are built on top of others.
+
+\begin{enumerate}
+	\item First generation languages (abbreviated as 1GL): These are machine languages consisting of bits (1's and 0's). This is the actual language that the computer understands.
+
+		Computerphile has a video on youtube ``\href{https://www.youtube.com/watch?v=IAkj32VPcUE}{Inside the CPU}'' that helps with understanding how computers works with bits.
+	\item Second generation languages (2GL): This generation allows the use of symbolic names called mnemonics. The mnemonics represents the instructions the computer understands and some data is also written as mnemonics. Writing a program with mnemonics such as load, add and jmp is going to be so much easier than writing it with 100011, 000000 and 000010. Although programs were written on punch cards back in those days.
+
+		After writing the program it has to be converted to binary for the computer to be able to execute it. 2GL is also known as assembly language.
+	\item Third generation languages (3GL): These languages use words and symbols that are much easier to understand.
+		A compiler is needed to convert / translate code in 3GL to machine code.
+		Other languages like python uses interpreters which are in machine code to execute high level codes.
+		These languages are also known as high level languages and they include C++, Javascript, python and ocamel.
+	\item Forth Generation languages (4GL): These languages are closer to human language than high level languages and they are usually used for specific cases. For example, SQL is used for accessing data in a database. Here is an example of an SQL code:
+
+		\begin{minted}[fontsize=\small, linenos]{sql}
+			SELECT name FROM students WHERE age > 20;
+		\end{minted}
+
+	\item Fifth Generation Languages (5GL): These languages are currently used for neural networks. A neural network is a form of artificial intelligence that attempts to imitate how the brain works.
+
+		Here are two videos that explains the basics of neural networks:
+
+		\begin{itemize}
+			\item \href{https://www.youtube.com/watch?v=aircAruvnKk}{But what is a neural network \ldots}
+			\item \href{https://www.youtube.com/watch?v=IHZwWFHWa-w}{Gradiend decent, how neural networks learn \ldots}
+		\end{itemize}
+\end{enumerate}
+
+\chapter{Third Generation Languages}
+
+\section{C++}
+C++ is a general purpose programming language that was developed by the Danish computer scientist Bjarne Stroustrup as an extention of the C language. He wanted an efficient and flexible language simillar to C that provides high level program features for program organization.
+
+C++ has object oriented, general, functional features in addition to low level memory manipulation facilities.
+
+This course will focus largely on C++.
+
+\section{Object Oriented Programming {-} OOP}
+Object oriented programming is a programming paradime based on the concept of objects which can contain data and code; data in the form of fields (properties or attributes) and code in the form of procedures (methods). In OOP, computer programs are designed by making them out of objects that interacts which each other.
+
+Here are some features of object oriented programming:
+
+\begin{itemize}
+	\item class relationship to object: An object is created from a class. E.G. an object ``Lion'' can be created from a class ``Animals''.
+	\item Inheritance relationship: In this case, classes inherits or absorbs the data and code of another class and it's own unique features. E.G. Smart phone inherits from mobile phone and adds features like Wifi and Touch screen.
+	\item Encapsulation and Information Hiding: This has to do with hiding the implementation details of a feature in a class and having an interface for other classes to access the feature. E.G. Stepping on the accelaration pedal of a car moves it forward but we don't have access to the inner-workings of the engine from the drivers sit. Encapsulation allows the decoupling of features from each other and enables separation of concerns.
+	\item Polymorphism: This is the provision of a single interfase to entities of different types. E.G. A draw procedure (function) that can draw circles, squares and triangles.
+\end{itemize}
+
+\section{Structured Programming}
+Structured programming is a programming paradime aimmed at improving the clarity, quality and development time of a program by using the structured control flow constructs.
+
+According to the structured programming theorum, three ways of combining programs are enough for expressing any computable function. These ways are:
+
+\begin{itemize}
+	\item Sequence
+	\item Selection and
+	\item Repetition or Iteration
+\end{itemize}
+
+\subsection{Sequence}
+This has to do with executing the code as it is. Execute the first instruction, followed by the second instruction, until the last instruction. I can't imagine a program that doesn't work this way 😕A.
+
+\subsection{Selection}
+This involves selecting a block or group of instructions (AKA statements in 3GL) to execute based on a condition. If statements and switch or match statements are used for the selections.
+
+\subsubsection{If Statements}
+In this case, a block statement is executed based on the truth-ness of an expression. An example of an expresssion is \verb|3 > 2|.
+
+Here is a list of the possible ways of using an if statement. I'll use braces (\verb|{}|) to indicate a block.
+
+\begin{itemize}
+	\item Only if statement:
+
+		\begin{verbatim}
+			statement1
+			if condition {
+				statement2
+statement3
+			}
+			statement4
+		\end{verbatim}
+
+		In this case, \verb|statement1| will execute first. If \verb|condition| is true, \verb|statement2| and \verb|statement3| will execute, and lastly \verb|statement4|. On the other hand, if \verb|condition| is false, \verb|statement2| and \verb|statement3| will not execute.
+		\item if followed by else statements:
+
+			\begin{verbatim}
+					statement1
+					if condition {
+						statement2
+					} else {
+						statement3
+					}
+					statement4
+			\end{verbatim}
+
+			If \verb|condition| is true, \verb|statement2| will execute then it will jump to \verb|statement4|. On the other hand, if \verb|condition| is false, \verb|statement3| will execute without executing \verb|statement2| and then \verb|statement4| will then execute.
+
+\end{itemize}
+
+It's possible to chain multiple if statements with different conditions to allow only the right statement to execute.
+
+\subsubsection{Switch or Match statement}
+The switch statement works by comparison. You'll give it something to compare with; a variable, the result of an expression or the value a function returns. It will then compare it to the known forms and execute the block that matches. If it doesn't match, the default block is executed. This sounds conffusing 😂.
+
+Here is an example:
+
+\begin{verbatim}
+		switch variable {
+		case value1:
+			statement1
+		case value2:
+			statement2
+		default:
+			statement3
+		}
+\end{verbatim}
+
+Switch statements are used for executing a block of code for specific values.
+
+If \verb|variable| matches with \verb|value1|, \verb|statement1| will execute. If it matches with \verb|value2|, \verb|statemet2| will execute. If it doesn't match with all the values, \verb|statement3| will execute. You can have multiple values.
+
+\subsection{Repetition}
+This involves executing a block of statements until a condition is met. This control flow is also known as loops. Here are some examples of loops.
+
+\begin{itemize}
+	\item while loop
+
+		\begin{verbatim}
+			 while condition {
+				 statements;
+			 }
+		\end{verbatim}
+
+		While statements are usually used for executing a block of statment until a condition is true.
+
+		The program will start by checking if \verb|condition| is true. If it's true, it will execute \verb|statements| and then it will go and check \verb|condition| again. This will continue until \verb|condition| is false. If \verb|condition| is false on the first check, \verb|statements| will never executes.
+
+	\item for loops:
+
+		\begin{verbatim}
+				for initialization; condition; increment {
+					statements;
+				}
+		\end{verbatim}
+
+For loops are usually used for executing a block of statements a number of times.
+
+		I don't think this is the place to explain how a for loop works. The main thing to note is; a for loop runs a number of times (in most cases).
+\end{itemize}
+\end{document}

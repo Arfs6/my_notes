@@ -40,7 +40,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential
-          sudo apt-get install texlive texlive-latex-extra texlive-fonts-recommended texlive-plain-generic          python3 -m pip install Pygments
+          sudo apt-get install texlive texlive-latex-extra texlive-fonts-recommended texlive-plain-generic -y
+          python3 -m pip install Pygments
           sudo tlmgr install make4ht
       - name: build notes
         run: make

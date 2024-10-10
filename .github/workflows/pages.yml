@@ -40,10 +40,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential
-          sudo apt-get install texlive texlive-latex-extra texlive-fonts-recommended texlive-plain-generic -y
+          sudo apt-get install -y texlive texlive-latex-extra texlive-fonts-recommended texlive-plain-generic tex4ht
           python3 -m pip install Pygments
-          tlmgr init-usertree
-          tlmgr install make4ht
       - name: build notes
         run: make
       - name: Upload artifact

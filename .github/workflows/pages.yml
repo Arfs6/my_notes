@@ -37,10 +37,7 @@ jobs:
       - name: Setup TeXLive
         uses: teatimeguest/setup-texlive-action@v3
         with:
-          packages: |
-            scheme-basic
-            texliveonfly
-            make4ht
+          package-file: .github/texlive_dependencies.txt
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: setup environment
@@ -49,8 +46,8 @@ jobs:
           sudo apt-get install -y build-essential
           # sudo apt-get install texlive texlive-latex-extra texlive-fonts-recommended texlive-plain-generic -y
           python3 -m pip install Pygments
-          # tlmgr init-usertree
-          # tlmgr install make4ht
+          tlmgr init-usertree
+          tlmgr install make4ht
       - name: build notes
         run: make
       - name: Upload artifact

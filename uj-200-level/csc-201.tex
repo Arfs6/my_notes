@@ -14,14 +14,24 @@
 \tableofcontents
 
 \section{Introduction}
-This course seems to focus a lot on C++.
+This course seems to focus a lot on C++. I am going to try and finish the handout I have first, then I'll read \verb|Programming principles and practice using c++|. I have no idea which version of \verb|c++| is being used in the pdf.
 
-I use g++ on WSL ubuntu 22.04 for compilation and running. All these tools are command line based; if you're the GUI type, you could try visual studio (the IDE not the text editor).
+I tried reading the handout and writing notes but it didn't work. So I just read it like a novel to know which part of \verb|C++| it covers.
+
+I'll be using ``Programming principles and practice using \verb|C++| by Bjarne Stroustroup'' for the \verb|C++| part. The book teaches programming through \verb|C++|.
+
+\begin{itshape}
+	 We want “the machine” to do things that are difficult enough for us to want help with them, but computers are nitpicking, unforgiving, dumb beasts.
+\end{itshape}
+
+I use g++ on WSL ubuntu 22.04 for compilation and running. All these tools are command line based; if you're the GUI type, you could try visual studio (the IDE not the text editor). Bjarne Stroustrop, the command line is supprisingly easy; so give it a shot.
 
 \chapter{Basic Concepts in Programming}
 
 \section{Computer Program and Programming Language}
 A computer program is a sequence of instructions written to perform a specified task. The instruction is written in a language that a computer can understand; I.E. a programming language. Thus a programming language is the language in which computer programs are written. The instructions are like commands that tell the computer what to do.
+
+A program is a precise representation of our understanding of a topic.
 
 Unlike human language, most programming languages are specific and detailed in nature. For example, if you ask 10 people to give another person a specific command in English, you'll get different variations of the command. On the other hand, a computer has a set of commands it knows (E.G. add not sum) and if you give it a command it doesn't know, you'll have to deal with it 😊. If you're lucky, you'll get an error. If you're unlucky, the computer will crash.
 
@@ -177,4 +187,42 @@ For loops are usually used for executing a block of statements a number of times
 
 		I don't think this is the place to explain how a for loop works. The main thing to note is; a for loop runs a number of times (in most cases).
 \end{itemize}
+
+\section{Brief History of C++}
+\verb|C++| was developed in the 1980s by Bjarne Stroustroup as an extention of \verb|C| language. It was later on standardized in 1998. \verb|C++| added features like objects (OOP), error handling using exceptions and more standard library features. \verb|C++| is like a super set of \verb|C|.
+
+\section{Structure of C++ code}
+Below is an example of a \verb|C++| program.
+
+\inputminted[linenos, frame=lines, fontsize=\small]{c++}{./csc-201/structure_of_cpp.cpp}
+
+\chapter{Hello World}
+Programming is a skill and skills are best learned by practising.
+
+In this chapter, we will write a \verb|C++| program and execute or run it.
+
+I realised most people have expectations when they hear write and run a program. The program we're going to right is a console (command line) program; it's input is through the keyboard in form of characters and it's output is through the monitor in form of characters also. There won't be any buttons, planes or charts; those are mainly found in Graphical User Interface (GUI) programs.
+
+If you can't appreciate a console (command line) program, then I'd suggest you should try learning \verb|javascript|.
+
+If you still have to learn \verb|C++|, then I'd suggest you should find a way to start appreciating it. You can just think about all the programs that have been built with \verb|C++| (Google it).
+
+\section{The hello world program}
+
+Below is a program that will output the text ``Hello, World!'' on your monitor when you run it.
+
+\inputminted[linenos, frame=lines, fontsize=\small]{c++}{./csc-201/3-hello_world.cpp}
+
+In the next few sections, we'll explain what each line of the program does and how to compile it.
+
+\section{Comments}
+Comments are text that are added to a source code for humans (programmers) to read. Others will benefit from it by reading what a chunk of code does, and you will benefit from it when you come back to your code after a while and you've forgotten why you wrote the code the way you wrote it.
+
+Comments starts with double forward slash ``//'' on \verb|C++|. Everything after the slashes will be ignored by the compiler as it's not part of the code.
+
+The first line in our Hello World source code explains what the program is supposed to do. It gives the reader an idea of what to expect.
+
+We have another comment on the line that starts with \verb|cout|. The comment explain what the code on that line does.
+
+\section{\#define directive}
 \end{document}

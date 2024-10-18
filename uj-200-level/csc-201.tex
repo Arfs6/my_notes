@@ -21,7 +21,7 @@ I tried reading the handout and writing notes but it didn't work. So I just read
 I'll be using ``Programming principles and practice using \verb|C++| by Bjarne Stroustroup'' for the \verb|C++| part. The book teaches programming through \verb|C++|.
 
 \begin{itshape}
-	 We want “the machine” to do things that are difficult enough for us to want help with them, but computers are nitpicking, unforgiving, dumb beasts.
+	We want “the machine” to do things that are difficult enough for us to want help with them, but computers are nitpicking, unforgiving, dumb beasts.
 \end{itshape}
 
 I use g++ on WSL ubuntu 22.04 for compilation and running. All these tools are command line based; if you're the GUI type, you could try visual studio (the IDE not the text editor). Bjarne Stroustrop, the command line is supprisingly easy; so give it a shot.
@@ -112,28 +112,28 @@ Here is a list of the possible ways of using an if statement. I'll use braces (\
 	\item Only if statement:
 
 		\begin{verbatim}
-			statement1
-			if condition {
-				statement2
-statement3
-			}
-			statement4
+		statement1
+		if condition {
+			statement2
+			statement3
+		}
+		statement4
 		\end{verbatim}
 
 		In this case, \verb|statement1| will execute first. If \verb|condition| is true, \verb|statement2| and \verb|statement3| will execute, and lastly \verb|statement4|. On the other hand, if \verb|condition| is false, \verb|statement2| and \verb|statement3| will not execute.
-		\item if followed by else statements:
+	\item if followed by else statements:
 
-			\begin{verbatim}
-					statement1
-					if condition {
-						statement2
-					} else {
-						statement3
-					}
-					statement4
-			\end{verbatim}
+		\begin{verbatim}
+		statement1
+		if condition {
+			statement2
+		} else {
+			statement3
+		}
+		statement4
+		\end{verbatim}
 
-			If \verb|condition| is true, \verb|statement2| will execute then it will jump to \verb|statement4|. On the other hand, if \verb|condition| is false, \verb|statement3| will execute without executing \verb|statement2| and then \verb|statement4| will then execute.
+		If \verb|condition| is true, \verb|statement2| will execute then it will jump to \verb|statement4|. On the other hand, if \verb|condition| is false, \verb|statement3| will execute without executing \verb|statement2| and then \verb|statement4| will then execute.
 
 \end{itemize}
 
@@ -145,14 +145,14 @@ The switch statement works by comparison. You'll give it something to compare wi
 Here is an example:
 
 \begin{verbatim}
-		switch variable {
-		case value1:
-			statement1
-		case value2:
-			statement2
-		default:
-			statement3
-		}
+switch variable {
+	case value1:
+	statement1
+	case value2:
+	statement2
+	default:
+	statement3
+}
 \end{verbatim}
 
 Switch statements are used for executing a block of code for specific values.
@@ -166,9 +166,9 @@ This involves executing a block of statements until a condition is met. This con
 	\item while loop
 
 		\begin{verbatim}
-			 while condition {
-				 statements;
-			 }
+		while condition {
+			statements;
+		}
 		\end{verbatim}
 
 		While statements are usually used for executing a block of statment until a condition is true.
@@ -178,12 +178,12 @@ This involves executing a block of statements until a condition is met. This con
 	\item for loops:
 
 		\begin{verbatim}
-				for initialization; condition; increment {
-					statements;
-				}
+		for initialization; condition; increment {
+			statements;
+		}
 		\end{verbatim}
 
-For loops are usually used for executing a block of statements a number of times.
+		For loops are usually used for executing a block of statements a number of times.
 
 		I don't think this is the place to explain how a for loop works. The main thing to note is; a for loop runs a number of times (in most cases).
 \end{itemize}
@@ -209,7 +209,7 @@ If you still have to learn \verb|C++|, then I'd suggest you should find a way to
 
 \section{The hello world program}
 
-Below is a program that will output the text ``Hello, World!'' on your monitor when you run it.
+Below is a program that will output the text ``Hello, World!\,'' on your monitor when you run it.
 
 \inputminted[linenos, frame=lines, fontsize=\small]{c++}{./csc-201/3-hello_world.cpp}
 
@@ -225,4 +225,109 @@ The first line in our Hello World source code explains what the program is suppo
 We have another comment on the line that starts with \verb|cout|. The comment explain what the code on that line does.
 
 \section{\#define directive}
+The line that starts with \verb|#define| makes sure we have the necessary code to print text on the monitor. The file specified between the double code is called a header file. The main thing to know for now is that it provides us with the code written by other programmers as part of the \verb|c++| standard library.
+
+\section{The main function}
+The program starts at the first line of code (statement) in the main function. Therefore it's important to have a main function in every \verb|C++| program in order to tell the computer where to start.
+
+A function is made up of four part:
+
+\begin{itemize}
+	\item The return type: it is the \verb|int| keyword in our case. It means an integer.
+	\item A name: main is the name we gave our function.
+	\item Parameters: These are data that get passd to a function when it is been called. It serves like a configuration or an input to the function. You write the parameters between a pair of round brackets ``()'' immediately after the name of the function. In our case, we didn't need a parameter, so we didn't specify any..
+	\item A block of statements: This part contains the code that will be executed when the function gets called. It is surrounded by a pair of braces ``{}''.
+\end{itemize}
+
+From the above, we can deduce that the most minimal \verb|C++| code will look like this:
+
+\begin{minted}[fontsize=\small, linenos]{c++}
+	int main() {}
+\end{minted}
+
+\section{The line that displays / prints the text}
+It's the line that starts with \verb|cout| that will print the text ``Hello, World!\,'' on your screen when you run the hello world program.
+
+\verb|cout| is pronounced c-out. It is an abbreviation for character output stream.
+
+Characters can be inserted into \verb|cout| with the \verb|<<| operator.
+
+The text surrounded by the quotation mark is known as a string; A string contains text. The text ``\\n'' at the end of the string represents a new line.
+
+Every statement in \verb|C++| ends with a semi colon.
+
+\begin{minted}[fontsize=\small, linenos]{c++}
+	cout << "Hello, World!"; // comment
+\end{minted}
+
+\begin{itshape}
+	The text after the double forward slashes is a comment; everything after it is just text, not part of \verb|c++| syntax.
+\end{itshape}
+
+\section{The return statement}
+The return statement returns data to the caller of the function. It could represent a result, conclusion or status. In this case it's more of a status. Returning \verb|0| from the main function of a program on unix systems means the program exited successfully.
+
+\begin{minted}[fontsize=\small, linenos]{c++}
+	return 0;
+\end{minted}
+
+The return statement also ends with a semi colon.
+
+\section{Compilation}
+\verb|C++| is a compiled language. the human readable code we wrote is known as a source code. It must be translated to an executable (object code or machine code) so that the computer will be able to run it.
+The compiler follows a set of rules when translating. If any rule is broken, the source code will not compile. It is case sensitive; it differentiates between upper and lower case letters. It wouldn't compile if you forget a semi colon or a bracket.
+
+It is ment to be a friend that tells us our mistakes before we run the code.
+
+\section{Linking}
+Source codes are generally comprised of several part. In our case, we have the part that contains the main function and the part that contains the standard library code we used for \verb|cout|. A linker is the program that links the two programs together to create an executable.
+
+\section{Programming Environment}
+To program, we need a programming language. We also need a compiler and maybe a linker. Further more, we'll need a software to write the program in it. And most importantly, we'll need a browser for looking for documentation or seeking for help online.
+
+In some cases, most of the tools we need and more are bundled into one application called an IDE (Integrated Development Environment). An example will be microsoft visual studio for c++. IDEs will provide you with an interface to write your code; it will have syntax highlighting to allow you to spot typos easily, it will also have an analysis tool that will continuously check your code for errors. Another feature common with IDEs is auto complete; some are powered by LLMs (Large Language Mode - AKA AI) like copilot.
+
+It could be overwhelming to try to master your IDE of choice. So, just learn what you need to create a project, write and save source code, and run and debug your code.
+
+Apart from IDEs, there are programs that does one thing. For example, a code editor for writing code (EX visual studio code or notepad++) and a compiler (EX g++).
+
+As for me, my environment starts with windows, with either Mozilla Firefox or Google Chrome as my browser. I have grown used to the linux eco system, so I have installed WSL (Windows Sub system for Linux). WSL allows a seemless integration between a linux distribution like ubuntu and windows.
+
+I use neovim code editor; it starts simple and allows you to add most of the IDE features as you grow. I found visual studio code overwhelming when I tried using it but I am planning to go back and try it very soon.
+
+Lastly, I use \verb|g++| as my compiler and linker together.
+
+It doesn't really matter what you use, just learn the hell out of it and use it kawai.
+
+\section{Dril}
+The drill of this chapter focuses on making you used to your development environment. I doubt I could provide any insight here as I have grown very acquainted to my development environment.
+
+Any ways, I'll write and run the code:
+
+\inputminted[linenos, frame=lines, fontsize=\small]{c++}{./csc-201/3-hello_world_drill.cpp}
+
+We have a new line that wasn't in the last code. It's needed on windows to stop the windo from closing before you have a chance to read the output.
+
+We need to have \verb|std_lib_facilities.h| to be able to compile the program. You can find it on \href{https://stroustrup.com/std_lib_facilities.h}{Stroustrup's website} or right \href{./csc-201/std_lib_facilities.h}{here} on this website.
+
+If you're going to use a separate folder (directory) for each chapter, you should keep \verb|std_lib_facilities.h| in the parent folder (I.E. the folder outside the chapter folder) and use it like this instead:
+
+\begin{minted}[fontsize=\small, linenos]{c++}
+	#include "../std_lib_facilities.h"
+\end{minted}
+
+The ``../'' before the name of the file tells the compiler to look in the parent directory for the file.
+
+Lastly, here is how I compile and run my program:
+
+\begin{minted}[fontsize=\small, linenos]{c++}
+	$ g++ 3-hello_world_drill.cpp -o hello_world
+	$ ./hello_world
+	Hello, World!
+	Please enter a character to exit
+	q
+	$
+\end{minted}
+
+If your environment is not like mine, don't worry about understanding what is going on. The most important thing to know is that it works and you'll need to type a character and press enter to close it.
 \end{document}

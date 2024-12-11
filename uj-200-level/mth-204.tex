@@ -1,0 +1,502 @@
+\documentclass{book}
+% Fonts
+\usepackage{fontspec}
+\setmainfont{Open Sans}
+\setmonofont{Fira Code}
+% Paper size
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+% ams packages (for math):
+% \usepackage{amsmath}
+% \usepackage{amsfonts}
+% \usepackage{amssymb}
+% \usepackage{booktabs} % For tables (toprule, midrule, bottomrule...)
+\usepackage{enumerate} % for changing enumeration types (EX: roman numerals, lower case letters ...)
+% \usepackage{hyperref} % For urls (EX: \href{url.domain}{text})
+% Minted package for code snippets
+% \usepackage{minted}
+\title{MTH 204 {-} Vector spaces over the real field}
+\author{Abdulqadir Ahmad}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Vector space}
+\section{Definition of vector space}
+A vector space is a space that follows the associative and commutative law of addition between vectors, and the law of associative and distributive law of scalars with vactors.
+
+A vector space consist of a set of vectors V and a field of scalars K with two operations:
+
+\begin{itemize}
+	\item \(\vec v \in V + \vec u \in V = (\vec v + \vec u) \in V\)
+
+		Adding the two vectors \(\vec v\) and \(\vec u\) will yield a vector \(\vec{v + u}\) that is a member of the set V.
+
+	\item \(c \in k \times \vec v \in V = c \vec v \in V\)
+
+		The result of multiplying the scalar \(c\) and the vector \(\vec v\) will yield a vector \(c\vec{v}\) which is a member of the set V.
+\end{itemize}
+
+Both the above vector operations shall follow certain conditions, also known as axioms.
+
+\section{Axioms of Vector Space}
+All vector spaces can be defined by 10 axioms.
+Let \(\vec u\), \(\vec v\) and \(\vec w\) be elements of the set of vectors V.
+
+Let c and d be elements of the field F.
+
+\begin{enumerate}
+	\item Closed under addition:
+
+		\[\vec u + \vec v = \vec w\]
+
+		The result of the addition \(\vec w\) is also in the vector space.
+
+	\item Closed under scalar multiplication:
+
+		\[c \times \vec v = c \vec v\]
+
+		The result of the scalar multiplication \(c \vec v\) is a member of V:
+
+		\[cv \in V\]
+
+	\item Associative under addition:
+
+		\[\vec u + (\vec v + \vec w) = (\vec u + \vec v) + \vec w\]
+	\item Associative under scalar multiplication:
+
+		\[c \times (d \vec u) = (cd) \times \vec u\]
+	\item Commutative under addition:
+
+		\[\vec u + \vec v = \vec v + \vec u\]
+	\item Distributive under scalar multiplication:
+
+		\[c \times \vec v = \vec v \times c\]
+
+	\item Disctributive under scalar multiplication:
+
+		\[c \times (\vec u + \vec v) = c ;vc u + c \vec v\]
+
+	\item Additive identity:
+
+		\[\vec v + 0 = \vec v\]
+
+		0 is a member of V: \(0 \in V\)
+	\item Multiplicative identity:
+
+		\[1 \times \vec u = \vec u\]
+
+		1 is a member of F; \(1 \in F\)
+
+	\item Additive inverse:
+
+		\[\vec u + (- \vec u) = 0\]
+
+		Where 0 and \(- \vec u\) are all member of V; \(\forall - \vec u, 0 \in V\)
+\end{enumerate}
+
+\section{Subspace}
+Let W be a sub set of V over a field K. Then W is a sub space of V if W is a vector space over the field K with respect to the operations of addition and scalar multiplication defined on V. In other words, W must satisfy the following criteria:
+
+\begin{itemize}
+	\item W must not be an empty set: \(W \neq \eptyset\).
+	\item Elements of W must be closed under addition: \(u + v = w \; \forall u, v, w \in W\)
+	\item Elements of W must be closed under scalar multiplication: \(c \times u = cu \; \forall c \in K and u in W\)
+\end{itemize}
+
+\section{Linear Combination}
+A linear combination of the vectors \(v_1\), \(v_2\), \ldots \(v_n\) in a vector space V is any vector that can be expressed as the sum of the scalar multiples of these vectors.
+
+In other words, v is a linear combination of the vectors \(v_1\), \(v_2\), \ldots \(v_n\) if there exist scalars; \(a_1\), \(a_2\), \ldots \(a_n\) (Where \(\forall a_1, a_2, a_n \in K\) and K is the field over which the vector space is defined) such that:
+
+\[v = a_1 v_1 + a_2 v_2 + \cdots + a_n v_n\]
+
+The scalars are called the coefficient of the linear combination.
+
+\subsection{Key points}
+\begin{itemize}
+	\item The set of all possible linear combinations of a set of vectors is called there span.
+	\item \(v_1, v_2, \cdots v_n\) is set to be linearly dependent if there exist a coefficient of the linear combination that isn't equal to 0.
+	\item On the other hand, a group of vectors is said to be linearly independent if there is no coefficient that will yield a vector.
+\end{itemize}
+
+\section{Generators and Span}
+A set of vectors S generates a vector space V if all the vectors in V can be expressed as the linear combination of some vectors in S. In other words, S generates V.
+
+The linear span S (of simply span) of a vector space V is the set of all the linear combinations of the vectors in V.
+
+If \(\text{span}(S) = V\), then S is said to generate V.
+
+\section{Sub of SubSpaces}
+If U and W are both subspaces of V, then the sub of the two subspaces will give another subspace \(U + W\). In other words, \(U + W\) is the set of all vectors that can be written as the sum of a vector from U and a vector from W. The new subspace \(U + W\) will satisfy the closure under addition and scalar multplication axioms.
+
+\section{Direct Sum}
+The direct sum of two sub spaces U and W is the sum of the two sub spaces \(U + W\) where the intersection of U and W is trivial, I.E. \(U \cap W = \{0\}\). This is ensures every vector in the new subspace is a unique representation of the sum of the two vectors.
+
+It as written as:
+\[V = U \oplus W\]
+
+\chapter{Bases and dimension}
+\section{Linear dependence}
+A set of vectors \(\{v_1, v_2, \cdots v_n\}\) is said to be linearly independent if the linear combination of the vectors is a zero vector. In order words, a set of vectors is said to be linearly dependent if there exist a scalar multiple of the vectors that when added together yields 0. The scalars must not all be 0, otherwise the vectors will be linearly independent.
+
+\[a v_1 + b v_2 + \cdots k v_n = 0 \; \forall v_1, v_2, v_n \in V \text{and} a, b, k \in K\]
+
+Where V is a vector space and K is the field the vector space is on.
+
+\subsection{Linearly independent vectors}
+Linear independence is the opposite of linear dependence. If there is no sum of scalar multiples of a sequence of vectors that yields 0 except when using 0 as the scalar for all the vectors, the vectors are said to be linearly independent.
+
+Mathematically:
+\[a_1 v_1 + a_2 v_2 + \cdots + a_n v_n \neq 0 \; \forall a_1, a_2, a_n \in K \text{and} v_1, v_2, v_n \in V\]
+
+Where V is a vector space over the field K.
+
+\section{Bases and Dimension}
+A vector space V is said to be n-dimensional if there exist n linearly independent vectors that spans the vector space. A set of linearly independent vectors that spans a vector space is known as it's base.
+
+\section{Coordinates and Coordinate Vectors}
+Every vector in an n-dimensional vector space V can be expressed as the linear combination of the vectors in it's bases.
+
+If the bases is E, then:
+\[v = a_1 e_1 + a_2 e_2 + \cdots + a_n e_n\]
+The scalars \(a_1, a_2, a_n \in K\) (where K is the field which the vector space V is defined over) is known as the coordinates of the vector v in the bases.
+
+When the scalars is represented as a tuple (\((a_1, a_2, \cdots a_n)\)) or as a column vector, it's known as a coordinate vector and it's represented by \([v]_e\).
+
+Since the bases of a vector contains linearly independent vectors, the coordinates of a vector in a bases and it's coordinate vector relative to the bases is unique.
+
+\chapter{Linear mapping}
+\section{Definition}
+A linear mapping (or linear transformation) is a rule that connects to vector spaces over the same field in way that preserves	their basics structure {-} adding of vectors and scaling by numbers. The zero vector must also exist on both side.
+
+Mathematicaly:
+\[f(av + bw) = a f(v) + b f(w) \; \forall v, w \in V \text{and} a, b \in K\]
+
+Where V is a vector space over the field K and f is the linear map.
+
+Below is how to write ``a vector space V maps to another vector space U through a function or rule f''
+\[f: V \to U\]
+
+Other names for linear mappings are vector homomophism, linear transformation and linear operator.
+
+\section{Image and Kernel}
+Images and kernels are concepts that help us understand how the map behaves.
+
+\subsection{Image}
+The image of a map F denoted as \(\text{Im}(F)\) is the set of all the vectors 
+\chapter{Solved questions}
+\section{First Test Questions}
+
+1. Let \( V = \mathbb{R}^2 \). Show that \( W = \{(x, y) : 5x + 2y = 10\} \) is not a subspace of \( V \).
+
+2. Express \( W = (0, -26, 9) \) as a linear combination of \( (5, 3, 7) \) and \( (2, -4, 1) \).
+
+   Show that \( (1, 3, 5) \) cannot be written as a linear combination of \( (5, 3, 7) \) and \( (2, -4, 1) \).
+
+3. Determine which of the vectors are linearly independent.
+   \begin{enumerate}[(a)]
+      \item \( (1, 0, 0), (1, 1, 0), (1, 1, 1) \)
+       \item \( (1, 2, 3), (3, 2, 1), (2, 1, 3) \)
+   \end{enumerate}
+
+4. Let \( V \) be the vector space of polynomials with degree \(\leq 3\). The polynomials
+\[f_1 = 1, \quad f_2 = t + 2, \quad f_3 = {(t + 2)}^2
+f_4 = {(t + 2)}^3\]
+
+form a basis of V.
+
+Given \[U = t^3 + 5t + 10\]
+
+Find the coordinate vector \(U_f\)
+
+\section*{Solution}
+1. A subspace must not be empty.
+
+We can test the above rule using the 0 vector: \((0, 0)\).
+
+\[5(0) + 2(0) = 10 \rightarrow 0 = 10\]
+
+Since \(0 \neq 0\), we can say W isn't a subspace.
+
+Furthermore, W isn't close under addition.
+
+2. \( W = (0, -26, 9) \)
+
+\[ v_1 = (5, 3, 7) \]
+
+\[ v_2 = (2, -4, 1) \]
+
+To express W as a linear combination of \(v_1\) and \(v_2\), we'll have:
+
+\[W = a_1 v_1 + a_2 v_2\]
+
+We can then solve for \(a_1\) and \(a_2\).
+
+\[(0, -26, 9) = a_1 (5, 3, 7) + a_2 (2, -4, 1)\]
+
+After expanding and simplifying, we'll get:
+
+\[(0, -26, 9) = 5 a_1 + 2 a_2, 3 a_1 - 4 a_2, 7 a_1 + a_2\]
+
+This will give 3 simultaneous equations.
+
+\[0 = 5 a_1 + 2 a_2\]
+
+\[-26 = 3 a_1 - 4 a_2\]
+
+\[9 = 7 a_1 + a_2\]
+
+\section{First assignment}
+\subsection{Question}
+Show that v is the linear combination of the following:
+
+\begin{enumerate}[a.]
+	\item \(v = (2, 0, -6)\), \(a_1 = (1, 1, 2)\), \(a_2 = (2, 0, 6)\) and \(a_3 = (2, -1, 0)\)
+	\item \(v = (3, 7, -4)\), \(a_1 = (1, -2, 0)\), \(a_2 = (2, 3, 0)\) and \(a_3 = (2, 0, -2)\)
+\end{enumerate}
+
+\subsection*{Solution}
+a.\, \(v = (2, 0, -6)\), \(a_1 = (1, 1, 2)\), \(a_2 = (2, 0, 6)\) and \(a_3 = (2, -1, 0)\)
+
+Lets try to find the scalars x, y and z:
+
+\[v = x a_1 + y a_2 + z a_3\]
+
+Substitute the vectors:
+
+\[(2, 0, -6) = x (1, 1, 2) + y (2, 0, 6) + z (2, -1, 0)\]
+
+\begin{align*}
+	x + 2 y + 2 z &= 2 \\
+	x - z &= 0 \\
+	2 x + 6 y &= -6 \\
+\end{align*}
+
+From the second equation, \(z = x\). We can substitute z in the first equation:
+\[x + 2 y + 2 x = 2 \rightarrow 3 x + 2 y = 2\]
+
+Lets make y subject:
+\[y = \frac{2 - 3x}{2}\]
+
+Substitute y into the third equation:
+\[2x + 6 \times \frac{2 - 3x}{2} = -6 \rightarrow 2x + 3 (2 - 3x) = -6 \rightarrow 6 - 7x = -6\]
+
+Solve for x:
+\[ - 7x = - 12 \rightarrow x = \frac{12}{7}\]
+
+From the second equation, \(x = z\).
+\[\therefore z = \frac{12}{7}\]
+
+Substitute the values of x and z into the first equation and solve for y.
+\[\frac{12}{7} + 2 y + 2 \times \frac{12}{7} = 2\]
+\[\frac{12}{7} + 2 y + \frac{24}{7} = 2\]
+\[2 y + \frac{36}{7} = 2\]
+\[2 y = 2 - \frac{36}{7}\]
+\[2 y = - \frac{22}{7}\]
+\[\therefore y = - \frac{11}{7}\]
+
+b.\, \(v = (3, 7, -4)\), \(a_1 = (1, -2, 0)\), \(a_2 = (2, 3, 0)\) and \(a_3 = (2, 0, -2)\)
+
+Find the scalars x, y and z:
+\[x a_1 + y a_2 + z a_3 = v\]
+
+Substitute the vectors:
+\[x (1, -2, 0) + y (2, 3, 0) + z (2, 0, -2) = (3, 7, -4)\]
+
+Rewrite the above expression into 3 equations:
+
+\begin{align*}
+	x + 2 y + 2 z &= 3 \\
+	-2 x + 3 y &= 7 \\
+	-2 z &= -4 \\
+\end{align*}
+
+Lets start by solving for z in equation 3:
+\[-2 z = -4 \rightarrow z = 2\]
+
+Substitute \(z = 2\) into the first equation:
+\[x + 2 y + 2 (2) = 3 \rightarrow x + 2 y + 4 = 3 \rightarrow x + 2 y = - 1\]
+
+Solve for x:
+\[x = - 2 y - 1\]
+
+Substitute \(x = - 2 y - 1\) into the second equation:
+\[- 2 (- 2 y - 1) + 3 y = 7\]
+\[4 y + 2 + 3 y = 7 \rightarrow 7 y + 2 = 7 \rightarrow 7 y = 5\]
+\[\therefore y = 5/7\]
+
+Substitute \(y = 5/7\) into \(x + 2 y = - 1\)
+\[x + 2 (5/7) = - 1\]
+\[x + \frac{10}{7} = - 1\]
+\[x = - 1 - \frac{10}{7}\]
+\[\therefore x = - \frac{17}{7}\]
+
+\subsection{Question}
+ggGFor what values of \(q\) are the following vectors linearly independent?
+
+\((1, 5, -2)\), \((0, 6, q)\) and \((3, 13, -3)\)
+
+\subsection*{Solution}
+To get values of q for which the vectors are linearly independent, we must get the values of q for which the determinant of the column matrix of the vectors is not equal to 0.
+
+Hence:
+\[q \neq \det \left(
+\begin{bmatrix}
+	1 & 5 & -2 \\
+	0 & 6 & q \\
+	3 & 13 & -3 \\
+\end{bmatrix}
+\right)\]
+
+\[0 \neq (6 \times -3 - 13 q) - 5 (0 \times - 3 - 3 q) + {-2}(0 \times 13 - 6 \times 3)\]
+\[0 \neq -18 - 13 q - 5 (0 - 3 q) + {-2}(0 - 18)\]
+\[0 \neq -18 - 13 q + 15 q + 36\]
+\[0 \neq 2 q + 18\]
+\[2 q \neq - 18\]
+\[\therefore q = - 9\]
+
+\subsection{Question}
+Let V be the vector space of polinomials with degree \(\leq 3\). The polinomials \(f_1 = 1\), \(f_2 = t + 2\), \(f_3 = {(t + 2)}^2\) and \(f_4 = {(t + 2)}^3\) form a bases of V. Given \(u = t^3 + 5t + 10\) find the coordinate vector \({[u]}_f\).
+
+\subsection*{Solution}
+Lets start by expanding\(f_3\) and \(f_4\):
+\[f_3 = {(t + 2)}^2 \rightarrow f_3 = t^2 + 4t + 4\]
+\[f_4 = {(t + 2)}^3 \rightarrow f_4 = t^3 t^3 6 t^2 + 12 t + 8\]
+
+\[t^3 + 5t + 10 = a + b (t + 2) + c (t^2  + 4t + 4) + d(t^3 + 6t^2 + 12t + 8)\]
+\[t^3 + 5t + 10 = a + bt + 2b + ct^2  + 4ct + 4c + dt^3 + 6dt^2 + 12dt + 8d\]
+
+Collect like terms based on the powers of t:
+\[t^3 + 5t + 10 = dt^3 + ct^2 + 6dt^2 + bt + 4ct + 12dt + a + 2b  + 4c + 8d\]
+
+Next, we'll create 4 equations by comparing the coefficients of t.
+
+\begin{itemize}
+	\item \(t^3\): \(1 = d\).
+	\item \(t^2\): \(0 = 6d + c\).
+	\item \(t\): \(5 = 12d + 4c + b\).
+	\item Constant: \(10 = 8d + 4c + 2b + a\)
+\end{itemize}
+
+Starting from the first equation, we know \(d = 1\).
+
+Moving to the second equation, we can find c:
+\[0 = 6d + c\]
+
+Substituting d and solving for c, we'll have:
+\[0 = 6 + c \rightarrow c = -6\]
+
+Next, we can substitute \(d = 1\) and \(c = -6\) into the third equation and solve for b:
+\[5 = 12d + 4c + b\]
+\[5 = 12 - 24 + c \rightarrow 5 = -12 + b \rightarrow b = 17\]
+
+Lastly, we can substitute the values of d, c and b into the forth equation to solve for a:
+\[10 = 8d + 4c + 2b + a\]
+\[10 = 8 - 24 + 34 + a \rightarrow a = -8\]
+
+\[\therefore {[u]}_f = (-8, 17, -6, 1)\]
+
+\section{Second test}
+\subsection{Question}
+Determine the matrix of the operator \(C: R^3 \to R^3\) given by \(t(x, y, z) = (x - 2y, y + z, y - z)\) with respect to the ordered bases \(\{e_1 = (1, 1, 1), e_2 = (1, 1, 0), e_3 = (1, 0, 0)\}\).
+
+\subsection*{Solution}
+The linear operator is:
+\[t(x, y, z) = (x - 2y, y + z, y - z)\]
+
+In order to find the matrix representation, we'll need to find the images for all the bases:
+\[\{e_1, e_2, e_3\}\]
+
+\[\text{Im}(e_1) = (1 - 2(1), 1 + 1, 1 - 1) = (-1, 2, 0)\]
+
+\[\text{Im}(e_2) = (1 - 2(1), 1 + 0, 1 - 0) = (-1, 1, 1)\]
+
+\[\text{Im}(e_3) = (1 - 2(0), 0 + 1, 0 - 1) = (1, 1, -1)\]
+
+The matrix representation is the transpose of the matrix below:
+\[\begin{bmatrix}
+	-1 & 2 & 0 \\
+	-1 & 1 & 1 \\
+	1 & 1 & -1 \\
+\end{bmatrix}\]
+
+\[\text{Matrix representation} = \begin{bmatrix}
+	-1 & -1 & 1 \\
+	2 & 1 & 1 \\
+	0 & 1 & -1 \\
+\end{bmatrix}\]
+
+\subsection{Question}
+a. Let V be the vector space of polinnomials \(t\) over \(R\) of degree \(\leq 2\) and let \(S: V \to V\) be the integral operator defined by \(Sp(t) = \int \frac{p(t)}{dt}\). Compute the matrix of S in the bases \(\{1, t, t^2\}\).
+
+b. Given that \(p(t) = a + bt + ct^2\). Show that \([S][p(t)] = [Sp(t)]\).
+
+\section*{Solution}
+Let's start by finding \(S(1)\)
+\[
+	S(1) = \int 1 \, dt = t
+\]
+
+The coordinate vector is:
+\[
+	S(1) = 0 \cdot 1 + 1 \cdot t + 0 \cdot t^2 = 0 + 1 + 0
+\]
+
+Next, let's find \(S(t)\):
+\[
+	S(t) = \int t \, dt = \frac{t^2}{2}
+\]
+
+The coordinate vector is:
+\[
+	S(t) = 0 \cdot 1 + 0 \cdot t + \frac{1}{2} \cdot t^2  = 0 + 0 + 1/2
+\]
+
+Lastly, let's find \(S(t^2)\)
+\[
+	S(t^2) = \int t^2 \, dt = \frac{t^3}{3}.
+\]
+
+The coordinate vector in this case is 0; this is because the degree of polinomials in the vector space is \(\leq 2\) and \(\frac{t^3}{3}\) is of degree \(> 2\).
+
+Arranging each coordinate vector as columns in the matrix below will yield the matrix:
+\[
+	\therefore \text{Matrix of } S =
+	\begin{bmatrix}
+		0 & 0 & 0 \\
+		1 & 0 & 0 \\
+		0 & \frac{1}{2} & 0 \\
+	\end{bmatrix}.
+\]
+
+\bigskip
+
+b. Let's start by finding \([S][p(t)]\):
+\[
+	[S][p(t)] = S(p(t)) = S(a + bt + ct^2)
+\]
+
+Using the linearity of the operator \( S \), we have:
+\[
+	S(a + bt + ct^2) = S(a) + S(bt) + S(ct^2)
+\]
+
+Next, we'll find \([Sp(t)]\):
+\[
+	[Sp(t)] = S(p(t))
+\]
+
+Substituting \( p(t) = a + bt + ct^2 \), we'll get:
+\[
+	[Sp(t)] = S(a + bt + ct^2)
+\]
+
+Same here:
+\[
+	S(a + bt + ct^2) = S(a) + S(bt) + S(ct^2)
+\]
+
+\[
+	\therefore [S][p(t)] = [Sp(t)]
+\]
+\end{document}

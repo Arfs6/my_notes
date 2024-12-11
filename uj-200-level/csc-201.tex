@@ -1,4 +1,8 @@
 \documentclass{book}
+% Fonts
+\usepackage{fontspec}
+\setmainfont{Open Sans}
+\setmonofont{Fira Code}
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -7,6 +11,7 @@
 \usepackage{booktabs}
 \usepackage{enumerate}
 \usepackage{minted}
+\setminted{style=friendly, fontsize=\small, linenos, autogobble, tabsize=2}
 \title{CSC 201 {-} Computer Programming I}
 \author{Abdulqadir Ahmad}
 \begin{document}
@@ -51,7 +56,7 @@ There are currently 5 generations of programming languages. Unlike generations o
 		These languages are also known as high level languages and they include C++, Javascript, python and ocamel.
 	\item Forth Generation languages (4GL): These languages are closer to human language than high level languages and they are usually used for specific cases. For example, SQL is used for accessing data in a database. Here is an example of an SQL code:
 
-		\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{sql}
+		\begin{minted}{sql}
 			SELECT name FROM students WHERE age > 20;
 		\end{minted}
 
@@ -194,7 +199,7 @@ This involves executing a block of statements until a condition is met. This con
 \section{Structure of C++ code}
 Below is an example of a \verb|C++| program.
 
-\inputminted[linenos, frame=lines, fontsize=\small, tabsize=2]{c++}{./csc-201/structure_of_cpp.cpp}
+\inputminted{c++}{./csc-201/structure_of_cpp.cpp}
 
 \chapter{Hello World}
 Programming is a skill and skills are best learned by practising.
@@ -211,7 +216,7 @@ If you still have to learn \verb|C++|, then I'd suggest you should find a way to
 
 Below is a program that will output the text ``Hello, World!\,'' on your monitor when you run it.
 
-\inputminted[linenos, frame=lines, fontsize=\small, tabsize=2]{c++}{./csc-201/3-hello_world.cpp}
+\inputminted{c++}{./csc-201/3-hello_world.cpp}
 
 In the next few sections, we'll explain what each line of the program does and how to compile it.
 
@@ -241,7 +246,7 @@ A function is made up of four part:
 
 From the above, we can deduce that the most minimal \verb|C++| code will look like this:
 
-\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{c++}
+\begin{minted}{c++}
 	int main() {}
 \end{minted}
 
@@ -256,7 +261,7 @@ The text surrounded by the quotation mark is known as a string; A string contain
 
 Every statement in \verb|C++| ends with a semi colon.
 
-\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{c++}
+\begin{minted}{c++}
 	cout << "Hello, World!"; // comment
 \end{minted}
 
@@ -267,7 +272,7 @@ Every statement in \verb|C++| ends with a semi colon.
 \section{The return statement}
 The return statement returns data to the caller of the function. It could represent a result, conclusion or status. In this case it's more of a status. Returning \verb|0| from the main function of a program on unix systems means the program exited successfully.
 
-\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{c++}
+\begin{minted}{c++}
 	return 0;
 \end{minted}
 
@@ -304,7 +309,7 @@ The drill of this chapter focuses on making you used to your development environ
 
 Any ways, I'll write and run the code:
 
-\inputminted[linenos, frame=lines, fontsize=\small, tabsize=2]{c++}{./csc-201/3-hello_world_drill.cpp}
+\inputminted{c++}{./csc-201/3-hello_world_drill.cpp}
 
 We have a new line that wasn't in the last code. It's needed on windows to stop the windo from closing before you have a chance to read the output.
 
@@ -312,7 +317,7 @@ We need to have \verb|std_lib_facilities.h| to be able to compile the program. Y
 
 If you're going to use a separate folder (directory) for each chapter, you should keep \verb|std_lib_facilities.h| in the parent folder (I.E. the folder outside the chapter folder) and use it like this instead:
 
-\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{c++}
+\begin{minted}{c++}
 #include "../std_lib_facilities.h"
 \end{minted}
 
@@ -320,7 +325,7 @@ The ``../'' before the name of the file tells the compiler to look in the parent
 
 Lastly, here is how I compiled and run my program:
 
-\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{bash}
+\begin{minted}{bash}
 	$ g++ 3-hello_world_drill.cpp -o hello_world
 	$ ./hello_world
 	Hello, World!
@@ -341,7 +346,7 @@ To accept input from a user we'll need a place to store it. An object is a regio
 
 \subsection*{Example}
 
-\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{c++}
+\begin{minted}{c++}
 cout << "Enter your first name (followed by enter):\n ";
 string first_name; // first_name is a variable of type string
 cin >> first_name; // Read characters into first_name
@@ -350,7 +355,7 @@ cout << "Hello " << first_name << "!\n";
 
 The \verb|#include| directive and the main function wasn't added in the previous example. You should add it if you want to test it. For example:
 
-\begin{minted}[fontsize=\small, linenos, tabsize=2, autogobble]{c++}
+\begin{minted}{c++}
 #include "std_lib_facilities.h"
 int main() {
 	// Your code goes here...
@@ -361,13 +366,13 @@ I have a file called \verb|tmp.cpp| where I write and execute the examples. It's
 
 Back to the example!
 
-\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{c++}
+\begin{minted}{c++}
 	cout << "Enter your first name (followed by enter):\n ";
 \end{minted}
 
 The first line prints a sentence encouraging the user to write his or her first name. It is known as a prompt.
 
-\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{c++}
+\begin{minted}{c++}
 	string first_name; // first_name is a variable of type string
 \end{minted}
 
@@ -375,13 +380,13 @@ The next line sets aside an area of memory for holding a string of characters an
 
 A statement that introduces a new name into a program and sets aside memory for a variable is known as a variable.
 
-\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{c++}
+\begin{minted}{c++}
 	cin >> first_name; // Read characters into first_name
 \end{minted}
 
 The next line waits for the user to type his or her name and press enter, then it will store what the user types into \verb|first_name|. The name \verb|cin| is a standard input stream defined in the standard library . It is pronounced c-in for character in.
 
-\begin{minted}[fontsize=\small, linenos, tabsize=2, autogobble]{c++}
+\begin{minted}{c++}
 	cout << "Hello " << first_name << "!\n";
 \end{minted}
 
@@ -400,7 +405,7 @@ For starters, the \verb|<<| operator was chained to output 3 values. We could ha
 
 Secondly, note how \verb|first_name| was used without a quotation mark. Quotes are used when a literal string is needed. On the other hand, writing the name of the variable means we're passing the object instead. Consider:
 
-\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{c++}
+\begin{minted}{c++}
 	cout << "first_name" << " is " << first_name;
 \end{minted}
 
@@ -409,14 +414,14 @@ Here, \verb|"first_name"| gives us the 10 characters \verb|first_name|, while \v
 \section{Variables}
 A named object with a type is known as a variable. The statement used in defining a variable is known as a definition statement. E.G.
 
-\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{c++}
+\begin{minted}{c++}
 	int age; // Define a named object age of type integer
 	string school; // Define a string of type string
 \end{minted}
 
 A variable could b initialized when defining it by setting it to a value. E.G.
 
-\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{c++}
+\begin{minted}{c++}
 	int age = 20; // Define a named object called age and store the integer 20 in it
 	string school = "University of Jos"; // Same here but type is string and value is "University of Jos"
 \end{minted}
@@ -426,7 +431,7 @@ Initializing a variable when defining it is encouraged. We'll talk in details ab
 
 \verb|C++| provides a rather large number of types but you can create a perfect program with these 5:
 
-\begin{minted}[fontsize=\small, linenos, autogobble, tabsize=2]{c++}
+\begin{minted}{c++}
 	 int year = 2024; // An integer type
 	 double pi = 3.142; // A floating point number AKA a real number
 	 char dollar_symbol = '$'; // A character type for individual characters
@@ -449,6 +454,9 @@ The character input stream is sensitive to types. That is, you can input more th
 
 \subsection*{Example}
 
-\inputminted[linenos, frame=lines, fontsize=\small, tabsize=2]{c++}{./csc-201/4-read_name_and_age.cpp}
+\inputminted{c++}{./csc-201/4-read_name_and_age.cpp}
+
+If we compile and run this code, it will wait for us to write a name followed by an age. Below are some examples of what you can get with different inputs:
+
 
 \end{document}

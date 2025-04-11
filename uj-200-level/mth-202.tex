@@ -1,0 +1,67 @@
+\documentclass{book}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\title{MTH 202 {-} Differential Equations}
+\author{Abdulqadir Ahmad}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{First order differential equations}
+\section{Linear differential equations}
+In order to be able to solve a linear differnetial equation, it most be in the form:
+\[\frac{dy}{dx} + p(x) y = g(x)\]
+Where both \(p(x)\) and \(g(x)\) are both continuous functions.
+
+We'll start by finding a function \(\mu(x)\) (integrating factor) such that when the differential equation is multiplied through by it, the left side of the equality sign turns into a derivative of a product of 2 functions.
+
+\[\mu(x) = e^{\int p(x)}\]
+
+Multiplying through by \(\mu(x)\), we'll get:
+\[\mu(x) y^'	+ \mu(x) p(x) y = g(x) \mu(x)\]
+
+Recall that \(\mu(x) = e^{\int p(x)}\).
+\[\therefore \mu^'(x) = \mu(x) p(x)\]
+
+Substitute for \(\mu^'(x)\):
+\[\mu(x) y^'(x) + \mu^'(x) y(x) = g(x) \mu(x)\]
+
+If you look at the left hand side carefully, it's just the derivitive of \(y (x)\times \mu(x)\).
+
+Let's change the left side of the equation to be the derivitive:
+\[{(y(x) \cdot \mu(x))}^' = g(x) \mu(x)\]
+
+To find \(y(x)\), we'll need to integrate both sides and solve for \(y(x)\):
+\[y(x) = \frac{\int (g(x) \mu(x)) + c}{\mu(x)}\]
+
+We could remove the integration constant because after integrating \(\int (\mu(x) g(x))\), another integration constant will immerge and we can merge the two.
+
+\section{Separable differential equations}
+This are non linear differential equations in the form:
+\[N(y) \frac{dy}{dx} = M(x)\]
+
+In order to solve this kind of equations, we can start by integrating both sides and hopefully be able to solve for y.
+\[\int N(y) \frac{dy}{dx} {dx} = \int M(x) {dx}\]
+
+Recall that \(y = y(x)\).
+
+So if we let \(u = y\), \[\frac{du}{dx} = \frac{dy}{dx} \rightarrow {du} = \frac{dy}{dx} \cdot {dx}\]
+
+We can substitute \(u\) and \({du}\):
+\[\int N(u) {du} = \int M(x) {dx}\]
+
+:
+\[\int N(u) {du} = \int M(x) {dx}\]
+
+This is the mathematical way for solving a separable differential equation.
+
+Going back to our original equation, if we assume we can multiply through by \({dx}\), we'll have:
+\[N(y) {dy} = M(x) {dx}\]
+
+After integrating both sides by their corresponding term, we'll get the same solution as the mathematical method but with different variables:
+\[\int N(y) {dy} = \int M(x) {dx}\]
+\end{document}

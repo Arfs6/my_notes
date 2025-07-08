@@ -1,0 +1,256 @@
+\documentclass{book}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\title{MTH 205 {-} Linear Algebra II}
+\author{Abdulqadir Ahmad}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Systems of linear equations}
+
+\section{Linear equation}
+
+A linear equation over a field k can be represented by:
+
+\[a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b\]
+
+Where:
+
+\[i, a_i, b \in k\]
+
+\(x_i\) are unknown variables.
+
+The scalars \(a_i\) are called the coefficient of \(x_i\) respectively and \(b\) is called the constant term of the linear equation.
+
+\section{Solution of a linear equation}
+
+A set of values \(c_i\) is said to be the solution of a linear equation if the linear equation is true when substituting \(c_i\) with \(x_i\).
+
+\[a_1 c_1 + a_2 c_2 + \cdots + a_n c_n = b\]
+
+Where \[c_1, c_2, c_n \in c_i\]
+
+Solutions of linear equations can be categorised into 3:
+
+\begin{enumerate}[a.]
+	\item One of the coefficient of \(x_i\) is not equal to 0. Then we can write the solution as:
+
+		\[a_1 x_1 = b - a_2 x_2 + \cdots + a_n x_n \rightarrow x_1 = 1/a_1 \times (b - a_2 x_2 \cdots + a_n x_n)\]
+
+		In this case, we say that the linear equation has many solutions.
+
+	\item All the coefficient of \(x_i\) are 0, but the constant is not 0.
+
+		\[0 x_1 + 0 x_2 + \cdots + 0 x_n = b\]
+
+		where \(b \ne 0\).
+
+		In this case, we say the linear equation is not consistent for there is no solution.
+
+	\item Both the coefficient of \(x_i\) and b are 0.
+
+		\[0 x_1 + 0 x_2 + \cdots + 0 x_n = 0\]
+
+		In this case, the solution of the linear equation can be any set of values in field K.
+\end{enumerate}
+
+\section{System of linear equations}
+
+A system of linear equations is a set of m linear equations with n unknowns. For example:
+
+\[a_{11} x_1 + a_{12} x_2 + \cdots + a_{1n} x_n = b_1\]
+\[a_{21} x_1 + a_{22} x_2 + \cdots + a_{2n} x_n = b_2\]
+\ldots
+\[a_{m1} x_1 + a_{m2} x_2 + \cdots + a_{mn} x_n = b_m\]
+
+where
+
+\[a_{ij}, b_i \in K\]
+
+If each \(b_i = 0\), then the system is said to be homogeneous otherwise, the system is non homogeneous.
+
+\section{Solution of a system of linear equation}
+A set of values \(c_i = \{c_1, c_2, \cdots c_n\}\) is a particular solution of a system if it satisfies all the linear equations.
+
+The set of all particular solutions is termed the solution set or the general solution.
+
+A homogeneous system always have a solution, I.E. the zero or trivial solution. Any other solution is called a non-trivial solution.
+
+\subsection{Theorum}
+
+Let C be a particular solution of a non-homogeneous system, and let A be the general solution of it's associated homogeneous system, then:
+
+\[c + A = \{c + a \forall a in A\}\]
+
+is the general solution of the aforementioned non-homogeneous system.
+
+\section{Gauss elimination method}
+
+This method involves the elimination of unknowns from succeeding equations by performing two operations:
+
+\begin{enumerate}[I.]
+	\item Interchange the equations so that first coefficient of the first isn't 0: \(a_{11} \ne 0\)
+	\item For each row in a column, apply the equation:
+
+		\[R_i = -A_{i1}R1 + a_{11}R_i\]
+
+		Where:
+
+		\(A_{ij}\) represents coefficients using matrix element identification.
+
+		\(R_i\) represents a row.
+
+		The goal is to have zeros below the \"diagonal\" of the system. You can achieve this by moving \(a_{ij}\) along the columns.
+\end{enumerate}
+
+\subsection{Coefficient and augmented matrix}
+
+An augmented matrix is gotten by writing each equation in a system as a row in a matrix. The unknown variables removed nd a vertical line should be added to represent the equality sign.
+
+A coefficient matrix is an augmented matrix without the constants.
+
+
+\subsection{Echelon form}
+
+\begin{enumerate}[I.]
+	\item The first coefficient of the first row is not equal to zero: \(a_{11} \ne 0\)
+	\item All coefficient below the leading diagonal are zeros.
+\end{enumerate}
+
+\subsection{Question}
+
+What condition(s) must be placed on e, f and g so that the following system in unknowns x, y and z has:
+
+\begin{enumerate}[(i)]
+	\item No solution.
+	\item More than one solution.
+	\item A unique solution.
+\end{enumerate}
+
+\[x + 2y - 3z = e\]
+\[2x - y + 4z = f\]
+\[4x + 3y - 2z = g\]
+
+\subsection*{Solution}
+\[-2 R_1 + R_2 \rightarrow R_2\]
+\[-4 R_1 + R_3 \rightarrow R_3\]
+
+\[x + 2y - 3z = e\]
+\[-5y + 10z = f - 2e\]
+\[-5y + 10z = g - 4e\]
+
+\[5 R_2 + (-5) \cdot R_3 \rightarrow R_3\]
+
+\[x + 2y - 3z = e\]
+\[-5y + 10z = f - 2e\]
+\[0 = -5g + 10e + 5f\]
+
+\begin{enumerate}[(i)]
+	\item \(-5g + 10e + 5f \ne 0\)
+	\item \(-5g + 10e + 5f = 0\)
+	\item A unique solution.
+\end{enumerate}
+
+\subsection{Question}
+
+Determine the values of b so that the following system in unknowns x, y and z has:
+
+\begin{enumerate}[(i)]
+	\item No solution.
+	\item More than one solution.
+	\item A unique solution.
+\end{enumerate}
+
+\[3x - 2y + 2z = 5\]
+\[2x + y - bz = 5\]
+\[5x - by - z = 16\]
+
+\subsection*{Solution}
+
+\[-2 R_1 + 3 R_2 \rightarrow R_2\]
+\[-5 R_1 + 3 R_3 \rightarrow R_3\]
+
+\[3x - 2y + 2z = 5\]
+\[7y - 3bz - 4z = 5\]
+\[-3by + 10y - 18z = 23\]
+
+\[3b R_2 + 7 R_3 \rightarrow R_3\]
+
+\[3x - 2y + 2z = 5\]
+\[7y - 3bz - 4z = 5\]
+\[- 9b^2z - 12bz - 126z = 15b + 161\]
+
+\chapter{Change of bases and similarity}
+
+\section{Transition matrix}
+
+A transition matrix is a matrix that connects two bases in a vector space.
+
+Supposed that we have two bases \(e_i = (e_1, e_2, \ldots e_n)\) and \(f_i = f_1, f_2, \ldots f_n\), and
+
+\[f_1 = a_{11}e_1 + a_{12}e_2 + \cdots + a_{1n}en\]
+\[f_2 = a_{21}e_1 + a_{22}e_2 + \cdots + a_{2n}en\]
+\ldots
+\[f_n = a_{n1}e_1 + a_{n2}e_2 + \cdots + a_{nn}en\]
+
+\[\begin{bmatrix}
+	f_1 \\
+	f_2 \\
+	\cdots \\
+	f_n \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+	a_{11} & a_{12} & \cdots & a_{1n} \\
+	a_{21} & a_{22} & \cdots & a_{2n} \\
+	a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+	e_1 \\
+	e_2 \\
+	\cdots \\
+	e_n \\
+\end{bmatrix}\]
+\[F = AE\]
+
+The transpose P of the coefficient matrix A is the transition from \(e_i\) to \(f_i\).
+
+On the other hand, the inverse of P (\(P^{-1}\)) is the transition matrix from \(f_i\) to \(e_i\).
+
+\subsection{Example}
+
+Let \({e_i} = {e_1 = (0, 1), e_2 = (0, 1)}\) and \({f_i} = {f_1 = (1, 1), f_2 = (2, 0)}\).
+
+Find:
+
+\begin{enumerate}[(i)]
+	\item the transition matrix \(P_1\) from \({e_i}\) to \({f_i}\).
+	\item the transition matrix \(P_2\) from \({f_i}\) to \({e_i}\).
+	\item and verify that \(P_2 = P^{-1}_1\).
+\end{enumerate}
+
+\subsection*{Solution}
+
+\subsection{Theorum}
+
+Let P be the transition matrix from a basis \({e_i}\) to a basis \({f_i}\) in a vector space V. Then, for any vector \(u \in V\), \(P[u]_f = [u]_e\) OR \([u]_f = P^{-1}[u]_e\).
+
+\subsection{Example}
+
+Let \({e_i}\) and \({f_i}\) be as in previous example and let \(u = (2, 3)\). Show that:
+
+\begin{enumerate}[(i)]
+	\item \(P[u] = [u]_e\) and
+	\item \([u]_f = P^{-1}[u]_e\).
+\end{enumerate}
+
+\subsection{Theorum}
+
+Let P be the transition matrix from a bases \({e_i}\) to a bases \({fi}\) in a vector space V. Then for any linear operator T on V, \([T]_f = P^{-1}[T]_eP\).
+\end{document}

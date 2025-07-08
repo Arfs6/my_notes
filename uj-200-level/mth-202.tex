@@ -64,4 +64,58 @@ Going back to our original equation, if we assume we can multiply through by \({
 
 After integrating both sides by their corresponding term, we'll get the same solution as the mathematical method but with different variables:
 \[\int N(y) {dy} = \int M(x) {dx}\]
-\end{document}
+
+\subsection{Solved questions}
+\subsubsection{Question}
+
+\[\]
+
+\section{Exact equations}
+Exact equations are the form:
+\[f(x, y) = M(x, y) + N(x, y) {dy}/{dx} = 0\]
+
+If a function \(f(x, y) = 0\), then \(\int f(x, y) = c\).
+
+Let \(\int f(x, y) = \psi(x, y)\).
+
+Using multiple variable chaine rule (\(f^'(x, y(x)) = \frac{\partial f}{\partial x} + \frac{\partial f}{\partial y} \cdot \frac{dy}{dx} \)) we can find \(f\) by deffernetiating \(\psi\).
+
+Let \(\psi_x = \frac{\partial \psi}{\partial x}\)
+and \(\psi_y = \frac{\partial \psi}{\partial y}\).
+
+\[\therefore f(x, y) = \psi^'(x, y) = \psi_x + \psi_y {dy}/{dx} = M(x, y) + N(x, y) {dy}/{dx}\]
+
+\subsection{Testing for exact equations}
+\[M_y = N_x\]
+
+No need to prove this.
+
+I think it will be true as long as \(\psi\) exist.
+
+\section{Bernoulli differential equation}
+Bernoulli differential equations are usually in the form:
+\[y^' + p(x) y = q(x) y^n\]
+
+Where p and q are continuous functions and n is a real number.
+
+The way of solving Bernoulli equations has to do with expressing the function as a linear function.
+
+Let's start by dividing the equation through by \(y^n\):
+\[y^{-n} y^' + p(x) y^{1 - n} = q(x)\]
+
+Let \(v = y^{1 - n}\).
+\[v^' = (1 - n)y^{-n} y^' \rightarrow \frac{1}{1 - n} v^' = y^{-n} y^'\]
+
+Substituting both v and \(v^'\), we'll get:
+\[\frac{1}{1 - n} v^' + p(x)v = q(x)\]
+
+The above is a linear first order differential equation we can solve.
+
+\section{Substitutions}
+In Bernoulli's differential equations, we substituted \(v = y^{1-n}\). There are other substitutions that we can make to  make it possible to solve differential equations that would be difficult to solve otherwise.
+
+\subsection{Homogeneous equations}
+Homogeneous equations are in the form:
+\[y^' = f(y/x)\]
+
+First order differential equations that can be written in this form are known as homogeneous differential equations.s.

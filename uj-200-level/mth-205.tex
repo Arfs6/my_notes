@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{enumerate}
+\usepackage{hyperref}
 \title{MTH 205 {-} Linear Algebra II}
 \author{Abdulqadir Ahmad}
 \begin{document}
@@ -81,7 +82,7 @@ The set of all particular solutions is termed the solution set or the general so
 
 A homogeneous system always have a solution, I.E. the zero or trivial solution. Any other solution is called a non-trivial solution.
 
-\subsection{Theorum}
+\subsection{Theorem}
 
 Let C be a particular solution of a non-homogeneous system, and let A be the general solution of it's associated homogeneous system, then:
 
@@ -122,11 +123,59 @@ A coefficient matrix is an augmented matrix without the constants.
 	\item All coefficient below the leading diagonal are zeros.
 \end{enumerate}
 
+\subsection{Example}
+
+Reduce the following to echelon form and solve:
+
+\[2x + 3y - w + 2z = 6\]
+\[3x - y + 2w - z = 3\]
+\[5x + 2y + w + z = 8\]
+
+\subsection*{Solution}
+
+\[-3 R_1 + 2 R_2 \rightarrow R_2\]
+\[-5 R_1 + 2 R_3 \rightarrow R_3\]
+\[2x + 3y - w + 2z = 6\]
+\[-11y + 7w - 8z = -12\]
+\[-11y + 7w - 8z = -14\]
+
+\[11 R_2 + (-11) \cdot R_3 \rightarrow R_3\]
+\[2x + 3y - w + 2z = 6\]
+\[-11y + 7w - 8z = -12\]
+\[0 = 22\]
+
+\(0 = 22\) the system is inconsistent.
+
+\subsection{Example}
+
+Reduce the following to echelon form and solve:
+
+\[2x + 3y - w + 2z = 6\]
+\[3x - y + 2w - z = 3\]
+\[x + 2y - 2w + 3z = 4\]
+\[4x + 6y - 2w + 4z = 12\]
+\[2x - y + w + z = 3\]
+
+\subsection*{Solution}
+
+\[-3 R_1 + 2 R_2 \rightarrow R_2\]
+\[- R_1 + 2 R_3 \rightarrow R_3\]
+\[-4 R_1 + 2 R_4 \rightarrow R_4\]
+\[-2 R_1 + 2 R_5 \rightarrow R_5\]
+
+\[2x + 3y - w + 2z = 6\]
+\[- 11y + 7w - 8z = - 12\]
+\[y - 3w + 4z = 2\]
+\[0 = 0\]
+\[- 8y + 4w - 2z = - 6\]
+
+\section{Tutorial Questions}
+
 \subsection{Question}
 
-What condition(s) must be placed on e, f and g so that the following system in unknowns x, y and z has:
+What condition{(s)} must be placed on e, f and g so that the following system in unknowns x, y and z has:
 
-\begin{enumerate}[(i)]
+\begin{enumerate}[i.]
 	\item No solution.
 	\item More than one solution.
 	\item A unique solution.
@@ -150,17 +199,17 @@ What condition(s) must be placed on e, f and g so that the following system in u
 \[-5y + 10z = f - 2e\]
 \[0 = -5g + 10e + 5f\]
 
-\begin{enumerate}[(i)]
+\begin{enumerate}[i.]
 	\item \(-5g + 10e + 5f \ne 0\)
 	\item \(-5g + 10e + 5f = 0\)
-	\item A unique solution.
+	\item The system has a free variable, therefore it can't have a unique solution.
 \end{enumerate}
 
 \subsection{Question}
 
 Determine the values of b so that the following system in unknowns x, y and z has:
 
-\begin{enumerate}[(i)]
+\begin{enumerate}[i.]
 	\item No solution.
 	\item More than one solution.
 	\item A unique solution.
@@ -184,6 +233,122 @@ Determine the values of b so that the following system in unknowns x, y and z ha
 \[3x - 2y + 2z = 5\]
 \[7y - 3bz - 4z = 5\]
 \[- 9b^2z - 12bz - 126z = 15b + 161\]
+
+\begin{enumerate}[i.]
+	\item No solution:
+		\[- 9b^2z - 12bz - 126z = 0\]
+		and
+		\[15b + 161 \ne 0\]
+
+	\item More than one solutions:
+		\[- 9b^2z - 12bz - 126z = 0\]
+		and
+		\[15b + 161 = 0\]
+
+	\item Unique solution:
+		\[- 9b^2z - 12bz - 126z \ne 0\]
+\end{enumerate}
+
+\subsection{Question}
+
+Determine whether each of the following system has a non zero solution.
+
+\begin{enumerate}[i.]
+	\item \[x + 2y - 2z = 0\]
+		\[x - 8y + 8z = 0\]
+		\[3x - 2y + 4z = 0\]
+
+	\item \[x + 3y - 2z = 0\]
+		\[2x - 3y + z = 0\]
+		\[3x - 2y + 2z = 0\]
+\end{enumerate}
+
+\subsection*{Solution}
+
+We can try to find the unique or infinite solutions of each system.
+
+\begin{enumerate}[i.]
+	\item \[x + 2y - 2z = 0\]
+		\[x - 8y + 8z = 0\]
+		\[3x - 2y + 4z = 0\]
+
+		\[-R_1 + R_2 \rightarrow R_2\]
+		\[-3R_1 + R_3 \rightarrow R_3\]
+
+		\[x + 2y - 2z = 0\]
+		\[-10y + 10z = 0\]
+		\[-8y + 10z = 0\]
+
+		\[8R_2 + (-10)R_3 \rightarrow R_3\]
+
+		\[x + 2y - 2z = 0\]
+		\[-10y + 10z = 0\]
+		\[-20z = 0\]
+
+		Let's check if the system has a unique solution.
+		\[-20z = 0 \rightarrow z = 0\]
+
+		Substitute \(z = 0\) into \(-10y + 10z = 0\):
+		\[-10y + 10(0) = 0 \rightarrow -10y = 0 \rightarrow y = 0\]
+
+		Lastly, substitute \(y = 0\), \(z = 0\) into \(x + 2y - 2z = 0\):
+		\[x + 2(0) - 2(0) = 0 x = 0\]
+
+		Therefore, the system doesn't have a non zero solution.
+
+	\item \[x + 3y - 2z = 0\]
+		\[2x - 3y + z = 0\]
+		\[3x - 2y + 2z = 0\]
+
+		\[-2R_1 + R_2 \rightarrow R_2\]
+		\[-3R_1 + R_3 \rightarrow R_3\]
+
+		\[x + 3y - 2z = 0\]
+		\[-9y + 7z = 0\]
+		\[-11y + 8z = 0\]
+
+		\[11R_2 + (-9)R_3 \rightarrow R_3\]
+
+		\[x + 3y - 2z = 0\]
+		\[-9y + 7z = 0\]
+		\[5z = 0\]
+
+		Let's try and find a unique solution:
+		\[5z = 0 \rightarrow z = 0\]
+
+		Substitute \(z = 0\) into \(-9y + 7z = 0\):
+		\[-9y + 7(0) = 0 \rightarrow -9y = 0 \rightarrow y = 0\]
+
+		Lastly, substitute \(y = 0\), \(z = 0\) into \(x + 3y - 2z = 0\):
+		\[x + 3(0) - 2(0) = 0 \rightarrow x = 0\]
+
+		Therefore, the system doesn't have a non zero solution.
+\end{enumerate}
+
+\subsection{Question}
+
+What condition{(s)} can you place on b so that the following system has a non-zero solution?
+\[bx + 12y = 0\]
+\[3x + by = 0\]
+
+\subsection*{Solution}
+
+The condition needs to make the system to have free variables.
+
+But first, let's reduce the system to echelon form.
+
+\[-3R_1 + bR_2 \rightarrow R_2\]
+
+\[bx + 12y = 0\]
+\[b^2y - 36y = 0\]
+
+In order to make the system to have free variables, we need to make \(b^2y - 36y = 0\).
+
+Since we're solving for b, we can start by dividing both side by y:
+\[b^2 - 36 = 0 \rightarrow b^2 = 36\]
+
+Taking the square root of both side, we'll have:
+\[\therefore b = 6\]
 
 \chapter{Change of bases and similarity}
 
@@ -224,12 +389,13 @@ The transpose P of the coefficient matrix A is the transition from \(e_i\) to \(
 On the other hand, the inverse of P (\(P^{-1}\)) is the transition matrix from \(f_i\) to \(e_i\).
 
 \subsection{Example}
+\label{sec:example-1}
 
-Let \({e_i} = {e_1 = (0, 1), e_2 = (0, 1)}\) and \({f_i} = {f_1 = (1, 1), f_2 = (2, 0)}\).
+Let \({e_i} = {e_1 = (1, 0), e_2 = (0, 1)}\) and \({f_i} = {f_1 = (1, 1), f_2 = (2, 0)}\).
 
 Find:
 
-\begin{enumerate}[(i)]
+\begin{enumerate}[i.]
 	\item the transition matrix \(P_1\) from \({e_i}\) to \({f_i}\).
 	\item the transition matrix \(P_2\) from \({f_i}\) to \({e_i}\).
 	\item and verify that \(P_2 = P^{-1}_1\).
@@ -237,20 +403,240 @@ Find:
 
 \subsection*{Solution}
 
-\subsection{Theorum}
+\begin{enumerate}[i.]
+	\item Let's start by finding the content of the matrix.
 
-Let P be the transition matrix from a basis \({e_i}\) to a basis \({f_i}\) in a vector space V. Then, for any vector \(u \in V\), \(P[u]_f = [u]_e\) OR \([u]_f = P^{-1}[u]_e\).
+		\begin{align*}
+			(1, 1) &= a_{11}(1, 0) + a_{12}(0, 1) \\
+			(2, 0) &= a_{21}(1, 0) + a_{22}(0, 1) \\
+	\end{align*}
+
+		We can find \(a_{11}\) and \(a_{12}\) by using linear combination:
+		\[(1, 1) = a_{11}(1, 0) + a_{12}(0, 1)\]
+		\[(1, 1) = (a_{11}, a_{12})\]
+		\[a_{11} = 1, a_{12} = 1\]
+
+		Next, let's find \(a_{21}\) and \(a_{22}\).
+		\[(2, 0) = (a_{21} + a_{22})\]
+		\[(a_{21} = 2, a_{22} = 0)\]
+
+		\[\begin{bmatrix}
+			(1, 1) \\
+			(2, 0) \\
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			1 & 1 \\
+			2 & 0 \\
+		\end{bmatrix}
+		\times
+		\begin{bmatrix}
+			(1, 0) \\
+			(0, 1) \\
+		\end{bmatrix}\]
+
+		The transition matrix \(P_1\) is the transpose of the coefficient matrix A.
+		\[P_1 = A^T = \begin{bmatrix}
+			1 & 2 \\
+			1 & 0 \\
+		\end{bmatrix}\]
+		
+	\item \begin{align*}
+			(1, 0) &= b_{11}(1, 1) + b_{12} (2, 0) \\
+			(0, 1) &= b_{21}(1, 1) + b_{22}(2, 0) \\
+			(0, 1) &= b_{12}(1, 1) + b_{22}(2, 0) \\
+	\end{align*}
+
+		Let's start by finding \(b_{11}\), b_{12} using linear combination:
+		\[(1, 0) = b_{11}(1, 1) + b_{12} (2, 0)\]
+		\[(1, 0) = (b_{11} + 2b_{12}, b_{11})\]
+		\[b_{11} = 0\]
+		\[1 = b_{11} + 2b_{12} \rightarrow 1 = 0 + 2b_{12} \rightarrow b_{12} = 1/2\]
+
+		\[(0, 1) = b_{21}(1, 1) + b_{22}(2, 0)\]
+		\[(0, 1) = (b_{21} + 2b_{22}, b_{21})\]
+		\[b_{21} = 1\]
+		\[0 = b_{21} + 2b_{22} \rightarrow 0 = 1 + 2b_{22} \rightarrow 2b_{22} = -1 \rightarrow b_{22} = -1/2\]
+		
+		\[B = \begin{bmatrix}
+			0 & 1/2 \\
+			1 & -1/2 \\
+		\end{bmatrix}\]
+
+		Transition matrix is \(B^T\):
+		\[B^T = P2 = \begin{bmatrix}
+			0 & 1 \\
+			1/2 & -1/2 \\
+		\end{bmatrix}\]
+
+	\item \[P = \begin{bmatrix}
+			1 & 2 \\
+			1 & 0 \\
+		\end{bmatrix}\]
+
+		\[P^{-1} = \frac{1}{(1 \times 0) - (2 \times 1)} \times \begin{bmatrix}
+			0 & -2 \\
+			-1 & 1 \\
+		\end{bmatrix}\]
+		\[P^{-1} = -1/2 \begin{bmatrix}
+			0 & -2 \\
+			-1 & 1 \\
+		\end{bmatrix}
+		\rightarrow
+		\begin{bmatrix}
+			0 & 1 \\
+			1/2 & -1/2 \\
+		\end{bmatrix} = P2\]
+\end{enumerate}
+
+\subsection{Theorem}
+
+Let P be the transition matrix from a basis \(\{e_i\}\) to a basis \(\{f_i\}\) in a vector space V.a Then, for any vector \(u \in V\), \(P{[u]}_f = {[u]}_e\) OR \({[u]}_f = P^{-1}{[u]}_e\).
 
 \subsection{Example}
 
-Let \({e_i}\) and \({f_i}\) be as in previous example and let \(u = (2, 3)\). Show that:
+Let \(\{e_i\}\) and \(\{f_i\}\) be as in Section~\ref{sec:example-1}~(\nameref{sec:example-1}) and let \(u = (2, 3)\). Show that:
 
-\begin{enumerate}[(i)]
-	\item \(P[u] = [u]_e\) and
-	\item \([u]_f = P^{-1}[u]_e\).
+\begin{enumerate}[i.]
+	\item \(P{[u]}_f = {[u]}_e\) and
+	\item \({[u]}_f = P^{-1}{[u]}_e\).
 \end{enumerate}
 
-\subsection{Theorum}
+\subsection*{Solution}
 
-Let P be the transition matrix from a bases \({e_i}\) to a bases \({fi}\) in a vector space V. Then for any linear operator T on V, \([T]_f = P^{-1}[T]_eP\).
+Let's start by manually finding \({[u]}_e\) and \({[u]}_f\):
+\[{[u]}_e = (2, 3)\]
+\[{[u]}_f = (3, -1/2)\]
+
+With this, we can verify our findings.
+
+\begin{enumerate}[i.]
+	\item \[P{[u]}_f = {[u]}_e \text{or} {[u]}_e = P{[u]}_f\]
+		\[{[u]}_e = \begin{bmatrix}
+			1 & 2 \\
+			1 & 0 \\
+		\end{bmatrix}
+		\cdot
+		(3, -1/2) = (1 \cdot 3 + 2 \cdot -1/2, 1 \cdot 3 + 0 \cdot -1/2) = (2, 3)\]
+
+	\item \[{[u]}_f = P^{-1}{[u]}_e\]
+		\[{[u]}_f = \begin{bmatrix}
+			0 & 1 \\
+			1/2 & -1/2 \\
+		\end{bmatrix}
+		\times
+		(2, 3)\]
+		\[{[u]}_f = (0 \cdot 2 + 1 \cdot 3, 1/2 \cdot 2 + -1/2 \cdot 3) = (3, -1/2)\]
+\end{enumerate}
+
+\subsection{Theorem}
+
+Let P be the transition matrix from a bases \(\{e_i\}\) to a bases \(\{f_i\}\) in a vector space V. Then for any linear operator T on V, \({[T]}_f = P^{-1} {[T]}_e P\).
+
+\subsection{Linear operators recap}
+
+Linear operators are functions that takes in vectors from a vector space V and yields vectors in the same vector space.
+
+The matrix representation \({[T]}_e\) of a linear operator T can be gotten by finding the images of all the vectors in the vector space e then:
+
+\begin{itemize}
+	\item Switching each vector to it's associated coordinate vectors.
+	\item Representing the coordinate vectors as a matrix.
+\end{itemize}
+
+\subsection{Example}
+
+Let \(\{e_i\}\) and \(\{f_i\}\) be as in Section~\nameref{sec:example-1}~(\ref{sec:example-1}) and T be the linear operator on \(RR^2\) defined by \(T(x, y) = (x + y, x - y)\), where R is the set of real numbers. Show that \({[T]}_f = P{−1} {[T]}_e P\).
+
+\subsection*{Solution}
+
+Let's start by finding \({[T]}_e\) and \({[T]}_f\):
+\[T(e_1) = (1 + 0, 1 - 0) = (1, 1) = e_1 + e_2\]
+\[T(e_2) = (0 + 1, 0 - 1) = (1, -1) = e_1 - e_2\]
+\[\therefore {[T]}_e = \begin{bmatrix}
+	1 & 1 \\
+	1 & -1 \\
+\end{bmatrix}\]
+
+\[T(f_1) = (1 + 1, 1 - 1) = (2, 0) = (0f_1, f_2)\]
+\[T(f_2) = (2 + 0, 2 - 0) = (2, 2) = (2f_1, 0f_2)\]
+\[\therefore {[T]}_f = \begin{bmatrix}
+	0 & 1 \\
+	2 & 0 \\
+\end{bmatrix}\]
+
+\[{[T]}_f = P^{-1} {[T]}_e P = \begin{bmatrix}
+	0 & 1 \\
+	-1/2 & 1/2 \\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+	1 & 1 \\
+	1 & -1 \\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+	1 & 2 \\
+	1 & 0 \\
+\end{bmatrix}\]
+
+\[{[T]}_f = \begin{bmatrix}
+	0 & 1 \\
+	1/2 & -1/2 \\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+	1 \times 1 + 1 \times 1 & 1 \times 2 + 1 \times 0 \\
+	1 \times 1 + (-1) \times 1 & 1 \times 2 + (-1) \times 0 \\
+\end{bmatrix}\]
+
+\[{[T]}_f = \begin{bmatrix}
+	0 & 1 \\
+	1/2 & -1/2 \\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+	2 & 2 \\
+	0 & 2 \\
+\end{bmatrix}\]
+
+\[{[T]}_f = \begin{bmatrix}
+	0 \times 2 + 1 \times 0 & 0 \times 2 + 1 \times 2 \\
+	1/2 \times 0 + (-1/2) \times 2 & 1/2 \times 2 + (-1/2) \times 2 \\
+\end{bmatrix}\]
+
+\[{[T]}_f = \begin{bmatrix}
+	0 & 2 \\
+	(-1) & 0 \\
+\end{bmatrix}\]
+
+\section{Similar matrices}
+
+Let A and B be square matrices and P be an invertible matrix. If:
+
+\[B = P^{-1}AP\]
+
+\itshape{Above expression might be wrongg \ldots}
+
+Then B is said to be similar to A or B is obtained by A similarity transformation.
+
+\subsection{Theorem}
+Similarity of matrices is an equivalence relation.
+
+\subsection{Theorem}
+Two matrices A and B represents the same linear operator if and only if they are similar to each other.
+
+\section{Diagonalization}
+
+A linear operator is said to be diagonalizable if for some bases \(\{e_i\}\) it is represented by a diagonal matrix. The bases \(\{e_i\}\) is said to diagonalize T.
+
+\subsection{Theorem}
+
+Let A be a matrix representation of a linear operator T. Then T is diagonalizable if and only if their exist an invertible matrix P such that \(P^{-1} A P\) yields a diagonal matrix.
+
+\section{Equivalent matrix}
+
+Two \(m \times n\) matrices A and B over K are said to be equivalent if there exists an m-square invertible matrix Q and an n-square invertible matrix P such that \(B = QAP\).
+
+\section{Tutorial questions}
 \end{document}
